@@ -1,18 +1,18 @@
-#Loan Application code
+#Ruairc's Loan Application code
 def loan_application(amount_applied,years,interest, monthly_salary):
     months= years*12
-    total_interest=0
-    total_interest = total_interest+((interest+1)**months)
-    repayment_amount = total_interest*amount_applied
+    d_interest=interest/100
     
+    total = amount_applied*((d_interest+1)**years)
+    repayment_amount= round(total/months,2)
+    thirty_of_monthly=monthly_salary*.30
     
-    thirty_of_monthly=monthly_salary*.3
-    print(thirty_of_monthly)
-    print(repayment_amount)
+    print("Your monthly repayment amount is: €",repayment_amount)
+    print("This is 30% of your monthly salary: €",thirty_of_monthly)
+    
     if thirty_of_monthly > repayment_amount:
-        return 0
+        return "You are eligeable for this loan"
     elif thirty_of_monthly < repayment_amount:
-        return 1
+        return "You are not eligeable for this loan"
     
-print(loan_application(10000,6,.32,10000))
-
+print(loan_application(40000,1,.32,3500))
